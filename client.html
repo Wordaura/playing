@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle-Inspired Game</title>
+    <script src="https://huntingstats378.github.io/main/assets/ess/odometer.js"></script>
+    <link href="https://huntingstats378.github.io/main/assets/ess/odometer.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            font-size: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="count" class="odometer">0</span>
+    <script>
+        setInterval(() => {
+        fetch(
+                `https://wordaura-client.onrender.com/api/client-count`
+            )
+            .then((res) => res.json())
+            .then((data) => {
+                document.getElementById("count").innerHTML = data.clientCount;
+            });
+        }, 2000);
+    </script>
+</body>
+
+</html>
